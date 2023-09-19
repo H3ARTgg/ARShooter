@@ -13,6 +13,8 @@
 		1DCD83102ABA2F64009C749A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1DCD830E2ABA2F64009C749A /* LaunchScreen.storyboard */; };
 		1DCD83192ABA30FB009C749A /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DCD83182ABA30FB009C749A /* GameViewModel.swift */; };
 		1DCD83232ABA36D1009C749A /* Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DCD83222ABA36D1009C749A /* Background.swift */; };
+		1DCD83262ABA372A009C749A /* UIImage + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DCD83252ABA372A009C749A /* UIImage + Extension.swift */; };
+		1DCD83392ABA44BC009C749A /* UIViewController + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DCD83382ABA44BC009C749A /* UIViewController + Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +25,8 @@
 		1DCD830F2ABA2F64009C749A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1DCD83182ABA30FB009C749A /* GameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
 		1DCD83222ABA36D1009C749A /* Background.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Background.swift; sourceTree = "<group>"; };
+		1DCD83252ABA372A009C749A /* UIImage + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage + Extension.swift"; sourceTree = "<group>"; };
+		1DCD83382ABA44BC009C749A /* UIViewController + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,8 +113,18 @@
 		1DCD83212ABA335D009C749A /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				1DCD83242ABA371E009C749A /* UI */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		1DCD83242ABA371E009C749A /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				1DCD83252ABA372A009C749A /* UIImage + Extension.swift */,
+				1DCD83382ABA44BC009C749A /* UIViewController + Extension.swift */,
+			);
+			path = UI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -186,6 +200,8 @@
 				1DCD83192ABA30FB009C749A /* GameViewModel.swift in Sources */,
 				1DCD83082ABA2F62009C749A /* GameViewController.swift in Sources */,
 				1DCD83042ABA2F62009C749A /* AppDelegate.swift in Sources */,
+				1DCD83392ABA44BC009C749A /* UIViewController + Extension.swift in Sources */,
+				1DCD83262ABA372A009C749A /* UIImage + Extension.swift in Sources */,
 				1DCD83232ABA36D1009C749A /* Background.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
