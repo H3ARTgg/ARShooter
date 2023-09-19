@@ -5,6 +5,7 @@ import ARKit
 final class GameViewController: UIViewController {
     private let sceneView = ARSCNView()
     private let mainScene = SCNScene()
+    private let viewModel: GameViewModelProtocol
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,8 +23,23 @@ final class GameViewController: UIViewController {
         sceneView.session.pause()
     }
     
+    init(viewModel: GameViewModelProtocol) {
+        self.viewModel = viewModel
+        super.init(nibName: .none, bundle: .main)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     private func configureViewController() {
         setupSceneView(sceneView, with: mainScene)
+        addNodesTo(mainScene)
+    }
+    
+    private func addNodesTo(_ scene: SCNScene) {
+        let backgroundSphereNode = Background.makeBackgroundNode()
+        scene.rootNode.addChildNode(backgroundSphereNode)
     }
     
     private func setupSceneView(_ sceneView: ARSCNView, with scene: SCNScene) {

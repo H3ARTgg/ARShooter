@@ -1,3 +1,7 @@
-final class GameViewModel {
+protocol GameViewModelProtocol {
+    
+}
+
+final class GameViewModel: GameViewModelProtocol {
     
 }
