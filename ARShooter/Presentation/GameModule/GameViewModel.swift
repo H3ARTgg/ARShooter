@@ -7,7 +7,6 @@ protocol GameViewModelProtocol {
     var timeLeftInSecondsPublisher: AnyPublisher<Double, Never> { get }
     var countdownSecondsPublisher: AnyPublisher<Double, Never> { get }
     var targetPublisher: AnyPublisher<SCNNode, Never> { get }
-    var targetsArray: [SCNNode] { get } 
     func enableTargetSpawn(at backgroundBoundingBox: (min: SCNVector3, max: SCNVector3))
     func addScore()
     func enableCoundownTimer()
@@ -27,7 +26,6 @@ final class GameViewModel: GameViewModelProtocol {
     var targetPublisher: AnyPublisher<SCNNode, Never> {
         targetSubject.eraseToAnyPublisher()
     }
-    private(set) var targetsArray: [SCNNode] = []
     private lazy var countdownTimer = Timer()
     private lazy var timeLeftTimer = Timer()
     private lazy var targetSpawnTimer = Timer()
