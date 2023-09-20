@@ -1,10 +1,12 @@
 import SceneKit
 
 final class Background {
+    static let name = "background"
+    
     static func makeBackgroundNode() -> SCNNode {
-        let sphereNode = SCNNode(geometry: SCNSphere(radius: 10))
+        let sphereNode = SCNNode(geometry: SCNSphere(radius: Consts.backgroundRadius))
         let material = SCNMaterial()
-        sphereNode.name = "background"
+        sphereNode.name = name
         material.cullMode = .front
         material.diffuse.contents = UIImage.background
         sphereNode.geometry?.materials = [material]
