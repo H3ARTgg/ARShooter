@@ -21,6 +21,7 @@
 		1DCD83392ABA44BC009C749A /* UIViewController + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DCD83382ABA44BC009C749A /* UIViewController + Extension.swift */; };
 		1DCD833B2ABB204E009C749A /* SphereTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DCD833A2ABB204D009C749A /* SphereTarget.swift */; };
 		1DCD833D2ABB974C009C749A /* Consts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DCD833C2ABB974C009C749A /* Consts.swift */; };
+		1DCD833F2ABBB46D009C749A /* GameResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DCD833E2ABBB46D009C749A /* GameResults.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		1DCD83382ABA44BC009C749A /* UIViewController + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + Extension.swift"; sourceTree = "<group>"; };
 		1DCD833A2ABB204D009C749A /* SphereTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SphereTarget.swift; sourceTree = "<group>"; };
 		1DCD833C2ABB974C009C749A /* Consts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Consts.swift; sourceTree = "<group>"; };
+		1DCD833E2ABBB46D009C749A /* GameResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameResults.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 		1DCD831C2ABA3126009C749A /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				1DCD833E2ABBB46D009C749A /* GameResults.swift */,
 				1DCD83272ABA3A47009C749A /* MenuModule */,
 				1DCD831D2ABA3138009C749A /* GameModule */,
 				1DCD832C2ABA3AFC009C749A /* StatisticsModule */,
@@ -242,6 +245,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1DCD833F2ABBB46D009C749A /* GameResults.swift in Sources */,
 				1DCD83192ABA30FB009C749A /* GameViewModel.swift in Sources */,
 				1DCD83342ABA3ECB009C749A /* String + Extension.swift in Sources */,
 				1DCD83292ABA3A78009C749A /* MenuViewController.swift in Sources */,
