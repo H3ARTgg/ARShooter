@@ -10,5 +10,5 @@ final class Consts {
     
     // Timers
     static let countdownToStart: Double = 3
-    static let timeLeft: Double = 10
+    static let timeLeft: Double = 60
 }
