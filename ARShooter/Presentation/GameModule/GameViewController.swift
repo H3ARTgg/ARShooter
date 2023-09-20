@@ -76,7 +76,7 @@ final class GameViewController: UIViewController {
         viewModel.enableTimeLeftTimer()
         for node in sceneView.scene.rootNode.childNodes {
             if node.name == Background.name {
-                viewModel.enableTargetSpawn(at: node.boundingBox)
+                viewModel.enableTargetSpawn(within: node.boundingBox)
             }
         }
     }

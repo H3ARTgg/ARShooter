@@ -7,7 +7,7 @@ protocol GameViewModelProtocol {
     var timeLeftInSecondsPublisher: AnyPublisher<Double, Never> { get }
     var countdownSecondsPublisher: AnyPublisher<Double, Never> { get }
     var targetPublisher: AnyPublisher<SCNNode, Never> { get }
-    func enableTargetSpawn(at backgroundBoundingBox: (min: SCNVector3, max: SCNVector3))
+    func enableTargetSpawn(within backgroundBoundingBox: (min: SCNVector3, max: SCNVector3))
     func addScore()
     func enableCoundownTimer()
     func enableTimeLeftTimer()
@@ -43,7 +43,7 @@ final class GameViewModel: GameViewModelProtocol {
         timeLeftTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(didUpdateTimeLeftTimer), userInfo: nil, repeats: true)
     }
     
-    func enableTargetSpawn(at backgroundBoundingBox: (min: SCNVector3, max: SCNVector3)) {
+    func enableTargetSpawn(within backgroundBoundingBox: (min: SCNVector3, max: SCNVector3)) {
         self.backgroundBoundingBox = backgroundBoundingBox
         targetSpawnTimer = Timer.scheduledTimer(timeInterval: Consts.targetSpawnInterval, target: self, selector: #selector(didUpdateTargetSpawnTimer), userInfo: nil, repeats: true)
     }
