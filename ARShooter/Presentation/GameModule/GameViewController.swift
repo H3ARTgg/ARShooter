@@ -1,23 +1,21 @@
 import UIKit
 import SceneKit
 import ARKit
+import Combine
 
 final class GameViewController: UIViewController {
     private let sceneView = ARSCNView()
     private let mainScene = SCNScene()
     private let countdownLabel = UILabel()
-    private lazy var countdownTimer = Timer()
-    private var countdownSeconds = 3
     private let crosshairImageView = UIImageView()
     private let timeLeftLabel = UILabel()
     private let timeLeftSecondsLabel = UILabel()
-    private var timeLeftInSeconds: Float = 60
-    private lazy var timeLeftTimer = Timer()
     private let scoreLabel = UILabel()
     private lazy var shootButton: UIButton = {
         let button = UIButton.systemButton(with: .shoot.withRenderingMode(.alwaysOriginal), target: self, action: #selector(didTapShoot))
         return button
     }()
+    private var cancellables: Set<AnyCancellable> = []
     private let viewModel: GameViewModelProtocol
     
     override func viewDidLoad() {
@@ -39,7 +37,7 @@ final class GameViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         setupCountdownLabel(countdownLabel)
-        runCountdownTimer(&countdownTimer)
+        viewModel.enableCoundownTimer()
     }
     
     init(viewModel: GameViewModelProtocol) {
@@ -56,49 +54,16 @@ final class GameViewController: UIViewController {
         let sceneView = sceneView as SCNView
         let touchLocation = CGPoint(x: view.frame.width / 2, y: view.frame.height / 2)
         let touchResult = sceneView.hitTest(touchLocation)
-        guard !touchResult.isEmpty, let node = touchResult.first?.node, node.name != "background" else { return }
+        guard !touchResult.isEmpty, let node = touchResult.first?.node, node.name == SphereTarget.name else { return }
+        viewModel.addScore()
         node.removeFromParentNode()
-    }
-    
-    @objc
-    private func didUpdateCountdownTimer() {
-        countdownSeconds -= 1
-        if countdownSeconds <= -1 {
-            countdownTimer.invalidate()
-            setupAfterCountdown()
-            return
-        }
-        countdownLabel.text = "\(countdownSeconds)"
-    }
-    
-    @objc
-    private func didUpdateTimeLeftTimer() {
-        let numberFormatter = NumberFormatter()
-        numberFormatter.decimalSeparator = "."
-        numberFormatter.maximumFractionDigits = 1
-        numberFormatter.roundingMode = .down
-        timeLeftInSeconds -= 0.1
-        if timeLeftInSeconds <= -0.1 {
-            timeLeftLabel.removeFromSuperview()
-            timeLeftSecondsLabel.removeFromSuperview()
-            timeLeftTimer.invalidate()
-            return
-        }
-        timeLeftSecondsLabel.text = numberFormatter.string(from: NSNumber(value: timeLeftInSeconds)) ?? "error"
-    }
-    
-    private func runCountdownTimer(_ timer: inout Timer) {
-        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(didUpdateCountdownTimer), userInfo: nil, repeats: true)
-    }
-    
-    private func runTimeLeftTimer(_ timer: inout Timer) {
-        timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(didUpdateTimeLeftTimer), userInfo: nil, repeats: true)
     }
     
     private func configureViewController() {
         setupSceneView(sceneView, with: mainScene)
         let backgroundSphereNode = Background.makeBackgroundNode()
         sceneView.scene.rootNode.addChildNode(backgroundSphereNode)
+        binds()
     }
     
     private func setupAfterCountdown() {
@@ -107,15 +72,57 @@ final class GameViewController: UIViewController {
         setupShootButton(self.shootButton)
         setupTimeLeftLabel(timeLeftLabel)
         setupTimeLeftSecondsLabel(timeLeftSecondsLabel)
-        runTimeLeftTimer(&timeLeftTimer)
         setupScoreLabel(scoreLabel)
+        viewModel.enableTimeLeftTimer()
+        for node in sceneView.scene.rootNode.childNodes {
+            if node.name == Background.name {
+                viewModel.enableTargetSpawn(at: node.boundingBox)
+            }
+        }
+    }
+    
+    private func binds() {
+        viewModel.scorePublisher
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] score in
+                self?.scoreLabel.text = "Score: \(score)"
+            }
+            .store(in: &cancellables)
+        
+        viewModel.timeLeftInSecondsPublisher
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] seconds in
+                let numberFormatter = NumberFormatter()
+                numberFormatter.decimalSeparator = "."
+                numberFormatter.maximumFractionDigits = 1
+                numberFormatter.roundingMode = .down
+                self?.timeLeftSecondsLabel.text = numberFormatter.string(from: NSNumber(value: seconds)) ?? "error"
+            }
+            .store(in: &cancellables)
+        
+        viewModel.countdownSecondsPublisher
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] seconds in
+                if seconds < 0 {
+                    self?.setupAfterCountdown()
+                } else {
+                    self?.countdownLabel.text = "\(Int(seconds))"
+                }
+            }
+            .store(in: &cancellables)
+        
+        viewModel.targetPublisher
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] target in
+                self?.sceneView.scene.rootNode.addChildNode(target)
+            }
+            .store(in: &cancellables)
     }
 }
 
 // MARK: - UI
 private extension GameViewController {
     func setupSceneView(_ sceneView: ARSCNView, with scene: SCNScene) {
-        sceneView.delegate = self
         sceneView.showsStatistics = true
         sceneView.scene = scene
         sceneView.translatesAutoresizingMaskIntoConstraints = false
@@ -213,23 +220,5 @@ private extension GameViewController {
             label.topAnchor.constraint(equalTo: view.topAnchor, constant: 20),
             label.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20)
         ])
-    }
-}
-
-// MARK: - ARSCNViewDelegate
-extension GameViewController: ARSCNViewDelegate {
-    func session(_ session: ARSession, didFailWithError error: Error) {
-        // Present an error message to the user
-        
-    }
-    
-    func sessionWasInterrupted(_ session: ARSession) {
-        // Inform the user that the session has been interrupted, for example, by presenting an overlay
-        
-    }
-    
-    func sessionInterruptionEnded(_ session: ARSession) {
-        // Reset tracking and/or remove existing anchors if consistent tracking is required
-        
     }
 }
