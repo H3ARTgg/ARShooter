@@ -19,6 +19,7 @@
 		1DCD83342ABA3ECB009C749A /* String + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DCD83332ABA3ECB009C749A /* String + Extension.swift */; };
 		1DCD83372ABA4467009C749A /* ModulesFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DCD83362ABA4467009C749A /* ModulesFactory.swift */; };
 		1DCD83392ABA44BC009C749A /* UIViewController + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DCD83382ABA44BC009C749A /* UIViewController + Extension.swift */; };
+		1DCD833B2ABB204E009C749A /* SphereTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DCD833A2ABB204D009C749A /* SphereTarget.swift */; };
 		1DCD833D2ABB974C009C749A /* Consts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DCD833C2ABB974C009C749A /* Consts.swift */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +38,7 @@
 		1DCD83332ABA3ECB009C749A /* String + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String + Extension.swift"; sourceTree = "<group>"; };
 		1DCD83362ABA4467009C749A /* ModulesFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModulesFactory.swift; sourceTree = "<group>"; };
 		1DCD83382ABA44BC009C749A /* UIViewController + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + Extension.swift"; sourceTree = "<group>"; };
+		1DCD833A2ABB204D009C749A /* SphereTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SphereTarget.swift; sourceTree = "<group>"; };
 		1DCD833C2ABB974C009C749A /* Consts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Consts.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -121,6 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				1DCD83222ABA36D1009C749A /* Background.swift */,
+				1DCD833A2ABB204D009C749A /* SphereTarget.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -246,6 +249,7 @@
 				1DCD83042ABA2F62009C749A /* AppDelegate.swift in Sources */,
 				1DCD83392ABA44BC009C749A /* UIViewController + Extension.swift in Sources */,
 				1DCD83262ABA372A009C749A /* UIImage + Extension.swift in Sources */,
+				1DCD833B2ABB204E009C749A /* SphereTarget.swift in Sources */,
 				1DCD833D2ABB974C009C749A /* Consts.swift in Sources */,
 				1DCD83372ABA4467009C749A /* ModulesFactory.swift in Sources */,
 				1DCD83232ABA36D1009C749A /* Background.swift in Sources */,
