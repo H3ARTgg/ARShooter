@@ -106,6 +106,8 @@ private extension LeaderboardsViewController {
         tableView.layer.cornerRadius = 15
         tableView.layer.masksToBounds = true
         tableView.allowsSelection = false
+        tableView.showsVerticalScrollIndicator = false
+        tableView.showsHorizontalScrollIndicator = false
     }
     
     func configureExitButton(_ button: UIButton) {
