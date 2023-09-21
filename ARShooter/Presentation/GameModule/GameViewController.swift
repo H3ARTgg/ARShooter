@@ -163,7 +163,7 @@ final class GameViewController: UIViewController {
 // MARK: - UI
 private extension GameViewController {
     func setupSceneView(_ sceneView: ARSCNView, with scene: SCNScene) {
-        sceneView.showsStatistics = true
+        sceneView.showsStatistics = false
         sceneView.scene = scene
         sceneView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(sceneView)
