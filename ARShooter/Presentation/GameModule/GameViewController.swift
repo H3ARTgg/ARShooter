@@ -117,8 +117,8 @@ final class GameViewController: UIViewController {
                 numberFormatter.maximumFractionDigits = 1
                 numberFormatter.roundingMode = .down
                 self?.timeLeftSecondsLabel.text = "\(numberFormatter.string(from: NSNumber(value: seconds)) ?? "error") \(String.seconds)"
-                if seconds == 0 {
-                    
+                if seconds <= 10 {
+                    self?.timeLeftSecondsLabel.textColor = .red
                 }
             }
             .store(in: &cancellables)
