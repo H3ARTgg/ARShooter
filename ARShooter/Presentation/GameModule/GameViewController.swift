@@ -51,18 +51,38 @@ final class GameViewController: UIViewController {
     
     @objc
     private func didTapShoot() {
+        viewModel.addShot()
         let sceneView = sceneView as SCNView
         let touchLocation = CGPoint(x: view.frame.width / 2, y: view.frame.height / 2)
-        let touchResult = sceneView.hitTest(touchLocation)
-        guard !touchResult.isEmpty, let node = touchResult.first?.node, node.name == SphereTarget.name else { return }
-        viewModel.addScore()
-        node.removeFromParentNode()
+        if let node = getNodeFrom(sceneView, for: touchLocation) {
+            viewModel.addScore()
+            node.removeFromParentNode()
+        }
+    }
+    
+    @objc
+    private func didTap(_ touch: UITapGestureRecognizer) {
+        viewModel.addShot()
+        let sceneView = touch.view as! SCNView
+        let touchLocation = touch.location(in: sceneView)
+        if let node = getNodeFrom(sceneView, for: touchLocation) {
+            viewModel.addScore()
+            node.removeFromParentNode()
+        }
+    }
+    
+    private func getNodeFrom(_ sceneView: SCNView, for location: CGPoint) -> SCNNode? {
+        let touchResult = sceneView.hitTest(location)
+        guard !touchResult.isEmpty, let node = touchResult.first?.node, node.name == SphereTarget.name else { return nil }
+        return node
     }
     
     private func configureViewController() {
         setupSceneView(sceneView, with: mainScene)
         let backgroundSphereNode = Background.makeBackgroundNode()
         sceneView.scene.rootNode.addChildNode(backgroundSphereNode)
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTap))
+        sceneView.addGestureRecognizer(tapGestureRecognizer)
         binds()
     }
     
@@ -85,7 +105,7 @@ final class GameViewController: UIViewController {
         viewModel.scorePublisher
             .receive(on: DispatchQueue.main)
             .sink { [weak self] score in
-                self?.scoreLabel.text = "Score: \(score)"
+                self?.scoreLabel.text = "\(String.score): \(score)"
             }
             .store(in: &cancellables)
         
@@ -96,7 +116,10 @@ final class GameViewController: UIViewController {
                 numberFormatter.decimalSeparator = "."
                 numberFormatter.maximumFractionDigits = 1
                 numberFormatter.roundingMode = .down
-                self?.timeLeftSecondsLabel.text = numberFormatter.string(from: NSNumber(value: seconds)) ?? "error"
+                self?.timeLeftSecondsLabel.text = "\(numberFormatter.string(from: NSNumber(value: seconds)) ?? "error") \(String.seconds)"
+                if seconds == 0 {
+                    
+                }
             }
             .store(in: &cancellables)
         
@@ -117,6 +140,20 @@ final class GameViewController: UIViewController {
                 self?.sceneView.scene.rootNode.addChildNode(target)
             }
             .store(in: &cancellables)
+        
+        viewModel.resultsPublisher
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] results in
+                self?.setupAlertWith(results: results)
+            }
+            .store(in: &cancellables)
+    }
+    
+    private func moveToMenuWithSave(_ check: Bool) {
+        if check {
+            // TODO: - Saving
+        }
+        dismiss(animated: true)
     }
 }
 
@@ -179,24 +216,24 @@ private extension GameViewController {
     }
     
     func setupTimeLeftLabel(_ label: UILabel) {
-        label.text = "Time left: "
+        label.text = "\(String.timeLeft): "
         label.textColor = .white
-        label.font = .systemFont(ofSize: 30, weight: .semibold)
+        label.font = .systemFont(ofSize: 20, weight: .semibold)
         label.translatesAutoresizingMaskIntoConstraints = false
         
         view.addSubview(label)
         
         NSLayoutConstraint.activate([
-            label.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -90),
+            label.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -150),
             label.topAnchor.constraint(equalTo: view.topAnchor, constant: 20)
         ])
     }
     
     func setupTimeLeftSecondsLabel(_ label: UILabel) {
-        label.text = "60.0"
+        label.text = "60.0 \(String.seconds)"
         label.textAlignment = .center
         label.textColor = .white
-        label.font = .systemFont(ofSize: 30, weight: .semibold)
+        label.font = .systemFont(ofSize: 20, weight: .semibold)
         label.translatesAutoresizingMaskIntoConstraints = false
         
         view.addSubview(label)
@@ -209,9 +246,9 @@ private extension GameViewController {
     }
     
     func setupScoreLabel(_ label: UILabel) {
-        label.text = "Score: 0"
+        label.text = "\(String.score): 0"
         label.textColor = .white
-        label.font = .systemFont(ofSize: 30, weight: .semibold)
+        label.font = .systemFont(ofSize: 20, weight: .semibold)
         label.translatesAutoresizingMaskIntoConstraints = false
         
         view.addSubview(label)
@@ -220,5 +257,20 @@ private extension GameViewController {
             label.topAnchor.constraint(equalTo: view.topAnchor, constant: 20),
             label.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20)
         ])
+    }
+    
+    func setupAlertWith(results: GameResults) {
+        let message = "\(String.totalShots): \(results.shots); \(String.totalHits): \(results.hits)"
+        let alert = UIAlertController(title: .gameOver, message: message, preferredStyle: .alert)
+        alert.view.tintColor = .green
+        let backToMenuAction = UIAlertAction(title: .backToMenu, style: .default) { [weak self] _ in
+            self?.moveToMenuWithSave(false)
+        }
+        let saveToLeaderboardsAction = UIAlertAction(title: .saveToLeaderboards, style: .default) { [weak self] _ in
+            self?.moveToMenuWithSave(true)
+        }
+        alert.addAction(backToMenuAction)
+        alert.addAction(saveToLeaderboardsAction)
+        present(alert, animated: true)
     }
 }
