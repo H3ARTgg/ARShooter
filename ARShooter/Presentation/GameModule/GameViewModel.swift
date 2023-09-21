@@ -73,12 +73,19 @@ final class GameViewModel: GameViewModelProtocol {
     private func makeResults() {
         resultsSubject.send(GameResults(shots: allShots, hits: scoreSubject.value, date: Date()))
     }
+    
+    private func getRandomSCNVector3(with boundingBox: (min: SCNVector3, max: SCNVector3)) -> SCNVector3 {
+        let randomX = Float.random(in: (backgroundBoundingBox.min.x + 1.5)..<(backgroundBoundingBox.max.x - 1.5))
+        let randomY = Float.random(in: (backgroundBoundingBox.min.y + 1.5)..<(backgroundBoundingBox.max.y - 1.5))
+        let randomZ = Float.random(in: (backgroundBoundingBox.min.z + 1.5)..<(backgroundBoundingBox.max.z - 1.5))
+        return SCNVector3(randomX, randomY, randomZ)
+    }
 }
 
 // MARK: objc functions
 private extension GameViewModel {
     @objc
-    private func didUpdateCountdownTimer() {
+    func didUpdateCountdownTimer() {
         countdownSecondsSubject.value -= 1
         if countdownSecondsSubject.value < 0 {
             timer.invalidate()
@@ -86,7 +93,7 @@ private extension GameViewModel {
     }
     
     @objc
-    private func didUpdateTimeLeftTimer() {
+    func didUpdateTimeLeftTimer() {
         if timeLeftInSecondsSubject.value <= 0.1 {
             timer.invalidate()
             timeLeftTimer.invalidate()
@@ -98,23 +105,43 @@ private extension GameViewModel {
     }
     
     @objc
-    private func didUpdateTargetSpawnTimer() {
-        let randomX = Float.random(in: (backgroundBoundingBox.min.x + 1.5)..<(backgroundBoundingBox.max.x - 1.5))
-        let randomY = Float.random(in: (backgroundBoundingBox.min.y + 1.5)..<(backgroundBoundingBox.max.y - 1.5))
-        let randomZ = Float.random(in: (backgroundBoundingBox.min.z + 1.5)..<(backgroundBoundingBox.max.z - 1.5))
-        
-        let targetPosition = SCNVector3(randomX, randomY, randomZ)
-        let target = SphereTarget.populateSphere(at: targetPosition)
-        
-        let animation = CABasicAnimation(keyPath: "position")
-        animation.duration = Consts.targetAnimationDuration
-        animation.fromValue = targetPosition
-        animation.toValue = SCNVector3(1, 1, 1)
-        animation.autoreverses = true
-        animation.repeatCount = .infinity
-        
-        target.addAnimation(animation, forKey: nil)
+    func didUpdateTargetSpawnTimer() {
+        let randomStartPosition = getRandomSCNVector3(with: backgroundBoundingBox)
+        let randomEndPosition = getRandomSCNVector3(with: backgroundBoundingBox)
+        let target = SphereTarget.populateSphere(at: randomStartPosition)
+        target.addAnimation(getMovingAnimationFrom(randomStartPosition, to: randomEndPosition), forKey: nil)
+        target.addAnimation(getRotatingAnimation(), forKey: nil)
+        target.filters = getBloom()
         targetSubject.send(target)
         AudioManager.shared.playTargetSpawn()
+    }
+}
+
+// MARK: - Animations & Effects
+private extension GameViewModel {
+    func getMovingAnimationFrom(_ position: SCNVector3, to endPosition: SCNVector3) -> CABasicAnimation {
+        let animation = CABasicAnimation(keyPath: "position")
+        animation.duration = Consts.targetAnimationDuration
+        animation.fromValue = position
+        animation.toValue = endPosition
+        animation.autoreverses = true
+        animation.repeatCount = .infinity
+        return animation
+    }
+    
+    func getRotatingAnimation() -> CABasicAnimation {
+        let animation = CABasicAnimation(keyPath: "rotation")
+        animation.duration = 5
+        animation.fromValue = SCNVector4(0, 0, 0, 0)
+        animation.toValue = SCNVector4(0, 0, 1, CGFloat(2 * Double.pi))
+        animation.repeatCount = .infinity
+        return animation
+    }
+    
+    private func getBloom() -> [CIFilter]? {
+        let bloomFilter = CIFilter(name:"CIBloom")!
+        bloomFilter.setValue(5.0, forKey: "inputIntensity")
+        bloomFilter.setValue(20.0, forKey: "inputRadius")
+        return [bloomFilter]
     }
 }
