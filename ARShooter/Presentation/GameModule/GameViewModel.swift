@@ -45,6 +45,7 @@ final class GameViewModel: GameViewModelProtocol {
     
     func startCoundownTimer() {
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(didUpdateCountdownTimer), userInfo: nil, repeats: true)
+        AudioManager.shared.playCountdown()
     }
     
     func startTimeLeftTimer() {
@@ -61,6 +62,7 @@ final class GameViewModel: GameViewModelProtocol {
     }
     
     func addShot() {
+        AudioManager.shared.playLaserShot()
         allShots += 1
     }
     
@@ -113,5 +115,6 @@ private extension GameViewModel {
         
         target.addAnimation(animation, forKey: nil)
         targetSubject.send(target)
+        AudioManager.shared.playTargetSpawn()
     }
 }
