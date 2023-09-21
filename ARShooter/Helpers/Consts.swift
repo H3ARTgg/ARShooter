@@ -11,4 +11,9 @@ final class Consts {
     // Timers
     static let countdownToStart: Double = 3
     static let timeLeft: Double = 60
+    
+    // Sounds
+    static let countdownSound = "countdown"
+    static let laserShotSound = "laserShot"
+    static let targetSpawnSound = "targetSpawn"
 }
