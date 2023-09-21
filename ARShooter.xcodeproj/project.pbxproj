@@ -107,7 +107,7 @@
 				1DCD833E2ABBB46D009C749A /* GameResults.swift */,
 				1DCD83272ABA3A47009C749A /* MenuModule */,
 				1DCD831D2ABA3138009C749A /* GameModule */,
-				1DCD832C2ABA3AFC009C749A /* StatisticsModule */,
+				1DCD832C2ABA3AFC009C749A /* LeaderboardsModule */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -158,11 +158,11 @@
 			path = MenuModule;
 			sourceTree = "<group>";
 		};
-		1DCD832C2ABA3AFC009C749A /* StatisticsModule */ = {
+		1DCD832C2ABA3AFC009C749A /* LeaderboardsModule */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			path = StatisticsModule;
+			path = LeaderboardsModule;
 			sourceTree = "<group>";
 		};
 		1DCD83352ABA4455009C749A /* AppBasic */ = {
