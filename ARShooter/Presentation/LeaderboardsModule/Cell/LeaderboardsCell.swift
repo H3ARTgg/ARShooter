@@ -58,7 +58,7 @@ private extension LeaderboardsCell {
     
     func configureStackView(_ stackView: UIStackView) {
         stackView.axis = .horizontal
-        stackView.spacing = 30
+        stackView.spacing = 20
         stackView.distribution = .equalSpacing
         stackView.alignment = .fill
         stackView.backgroundColor = .white.withAlphaComponent(0)
