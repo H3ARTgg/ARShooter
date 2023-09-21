@@ -24,6 +24,10 @@
 		1DCD833F2ABBB46D009C749A /* GameResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DCD833E2ABBB46D009C749A /* GameResults.swift */; };
 		1DCD83412ABBC2A5009C749A /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DCD83402ABBC2A5009C749A /* Storage.swift */; };
 		1DCD83432ABBC33D009C749A /* UserDefaults + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DCD83422ABBC33D009C749A /* UserDefaults + Extension.swift */; };
+		1DCD83452ABC91AC009C749A /* LeaderboardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DCD83442ABC91AC009C749A /* LeaderboardsViewController.swift */; };
+		1DCD83472ABC91DB009C749A /* LeaderboardsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DCD83462ABC91DB009C749A /* LeaderboardsViewModel.swift */; };
+		1DCD83492ABC9435009C749A /* LeaderboardsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DCD83482ABC9435009C749A /* LeaderboardsCell.swift */; };
+		1DCD834C2ABC946D009C749A /* LeaderboardsCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DCD834B2ABC946D009C749A /* LeaderboardsCellModel.swift */; };
 		1DCD834E2ABC9672009C749A /* UIFont + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DCD834D2ABC9672009C749A /* UIFont + Extension.swift */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +51,10 @@
 		1DCD833E2ABBB46D009C749A /* GameResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameResults.swift; sourceTree = "<group>"; };
 		1DCD83402ABBC2A5009C749A /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 		1DCD83422ABBC33D009C749A /* UserDefaults + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults + Extension.swift"; sourceTree = "<group>"; };
+		1DCD83442ABC91AC009C749A /* LeaderboardsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardsViewController.swift; sourceTree = "<group>"; };
+		1DCD83462ABC91DB009C749A /* LeaderboardsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardsViewModel.swift; sourceTree = "<group>"; };
+		1DCD83482ABC9435009C749A /* LeaderboardsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardsCell.swift; sourceTree = "<group>"; };
+		1DCD834B2ABC946D009C749A /* LeaderboardsCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardsCellModel.swift; sourceTree = "<group>"; };
 		1DCD834D2ABC9672009C749A /* UIFont + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont + Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -170,6 +178,9 @@
 		1DCD832C2ABA3AFC009C749A /* LeaderboardsModule */ = {
 			isa = PBXGroup;
 			children = (
+				1DCD83442ABC91AC009C749A /* LeaderboardsViewController.swift */,
+				1DCD83462ABC91DB009C749A /* LeaderboardsViewModel.swift */,
+				1DCD834A2ABC9439009C749A /* Cell */,
 			);
 			path = LeaderboardsModule;
 			sourceTree = "<group>";
@@ -180,6 +191,15 @@
 				1DCD83362ABA4467009C749A /* ModulesFactory.swift */,
 			);
 			path = AppBasic;
+			sourceTree = "<group>";
+		};
+		1DCD834A2ABC9439009C749A /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				1DCD83482ABC9435009C749A /* LeaderboardsCell.swift */,
+				1DCD834B2ABC946D009C749A /* LeaderboardsCellModel.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -255,16 +275,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				1DCD833F2ABBB46D009C749A /* GameResults.swift in Sources */,
+				1DCD834C2ABC946D009C749A /* LeaderboardsCellModel.swift in Sources */,
 				1DCD834E2ABC9672009C749A /* UIFont + Extension.swift in Sources */,
 				1DCD83192ABA30FB009C749A /* GameViewModel.swift in Sources */,
 				1DCD83342ABA3ECB009C749A /* String + Extension.swift in Sources */,
 				1DCD83292ABA3A78009C749A /* MenuViewController.swift in Sources */,
 				1DCD83432ABBC33D009C749A /* UserDefaults + Extension.swift in Sources */,
 				1DCD83082ABA2F62009C749A /* GameViewController.swift in Sources */,
+				1DCD83492ABC9435009C749A /* LeaderboardsCell.swift in Sources */,
 				1DCD83042ABA2F62009C749A /* AppDelegate.swift in Sources */,
 				1DCD83392ABA44BC009C749A /* UIViewController + Extension.swift in Sources */,
 				1DCD83262ABA372A009C749A /* UIImage + Extension.swift in Sources */,
 				1DCD833B2ABB204E009C749A /* SphereTarget.swift in Sources */,
+				1DCD83472ABC91DB009C749A /* LeaderboardsViewModel.swift in Sources */,
+				1DCD83452ABC91AC009C749A /* LeaderboardsViewController.swift in Sources */,
 				1DCD833D2ABB974C009C749A /* Consts.swift in Sources */,
 				1DCD83372ABA4467009C749A /* ModulesFactory.swift in Sources */,
 				1DCD83232ABA36D1009C749A /* Background.swift in Sources */,
