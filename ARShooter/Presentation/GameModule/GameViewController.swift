@@ -37,7 +37,7 @@ final class GameViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         setupCountdownLabel(countdownLabel)
-        viewModel.enableCoundownTimer()
+        viewModel.startCoundownTimer()
     }
     
     init(viewModel: GameViewModelProtocol) {
@@ -88,15 +88,15 @@ final class GameViewController: UIViewController {
     
     private func setupAfterCountdown() {
         countdownLabel.removeFromSuperview()
-        setupCrosshairImageView(self.crosshairImageView)
-        setupShootButton(self.shootButton)
+        setupCrosshairImageView(crosshairImageView)
+        setupShootButton(shootButton)
         setupTimeLeftLabel(timeLeftLabel)
         setupTimeLeftSecondsLabel(timeLeftSecondsLabel)
         setupScoreLabel(scoreLabel)
-        viewModel.enableTimeLeftTimer()
+        viewModel.startTimeLeftTimer()
         for node in sceneView.scene.rootNode.childNodes {
             if node.name == Background.name {
-                viewModel.enableTargetSpawn(within: node.boundingBox)
+                viewModel.startTargetSpawn(within: node.boundingBox)
             }
         }
     }

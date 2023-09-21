@@ -8,10 +8,10 @@ protocol GameViewModelProtocol {
     var countdownSecondsPublisher: AnyPublisher<Double, Never> { get }
     var targetPublisher: AnyPublisher<SCNNode, Never> { get }
     var resultsPublisher: AnyPublisher<GameResults, Never> { get }
-    func enableTargetSpawn(within backgroundBoundingBox: (min: SCNVector3, max: SCNVector3))
+    func startTargetSpawn(within backgroundBoundingBox: (min: SCNVector3, max: SCNVector3))
     func addScore()
-    func enableCoundownTimer()
-    func enableTimeLeftTimer()
+    func startCoundownTimer()
+    func startTimeLeftTimer()
     func addShot()
 }
 
@@ -31,26 +31,26 @@ final class GameViewModel: GameViewModelProtocol {
     var resultsPublisher: AnyPublisher<GameResults, Never> {
         resultsSubject.eraseToAnyPublisher()
     }
+    private var backgroundBoundingBox: (min: SCNVector3, max: SCNVector3) = (min: SCNVector3(), max: SCNVector3())
+    private var allShots: Int = 0
     private lazy var countdownTimer = Timer()
     private lazy var timeLeftTimer = Timer()
     private lazy var targetSpawnTimer = Timer()
-    private var backgroundBoundingBox: (min: SCNVector3, max: SCNVector3) = (min: SCNVector3(), max: SCNVector3())
-    private var allShots: Int = 0
     private let scoreSubject = CurrentValueSubject<Int, Never>(0)
     private let timeLeftInSecondsSubject = CurrentValueSubject<Double, Never>(Consts.timeLeft)
     private let countdownSecondsSubject = CurrentValueSubject<Double, Never>(Consts.countdownToStart)
     private let targetSubject = CurrentValueSubject<SCNNode, Never>(SCNNode())
     private var resultsSubject = PassthroughSubject<GameResults, Never>()
     
-    func enableCoundownTimer() {
+    func startCoundownTimer() {
         countdownTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(didUpdateCountdownTimer), userInfo: nil, repeats: true)
     }
     
-    func enableTimeLeftTimer() {
+    func startTimeLeftTimer() {
         timeLeftTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(didUpdateTimeLeftTimer), userInfo: nil, repeats: true)
     }
     
-    func enableTargetSpawn(within backgroundBoundingBox: (min: SCNVector3, max: SCNVector3)) {
+    func startTargetSpawn(within backgroundBoundingBox: (min: SCNVector3, max: SCNVector3)) {
         self.backgroundBoundingBox = backgroundBoundingBox
         targetSpawnTimer = Timer.scheduledTimer(timeInterval: Consts.targetSpawnInterval, target: self, selector: #selector(didUpdateTargetSpawnTimer), userInfo: nil, repeats: true)
     }
