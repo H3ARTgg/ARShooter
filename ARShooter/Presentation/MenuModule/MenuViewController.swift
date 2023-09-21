@@ -90,7 +90,7 @@ private extension MenuViewController {
     
     func configureStatisticsButton(_ button: UIButton) {
         button.setImage(nil, for: .normal)
-        button.setTitle(.statistics, for: .normal)
+        button.setTitle(.leaderboards, for: .normal)
         button.tintColor = .white
         button.titleLabel?.textColor = .white
         button.titleLabel?.font = .systemFont(ofSize: 30, weight: .semibold)
