@@ -144,14 +144,14 @@ final class GameViewController: UIViewController {
         viewModel.resultsPublisher
             .receive(on: DispatchQueue.main)
             .sink { [weak self] results in
-                self?.setupAlertWith(results: results)
+                self?.setupAlertWith(results)
             }
             .store(in: &cancellables)
     }
     
     private func moveToMenuWithSave(_ check: Bool) {
         if check {
-            // TODO: - Saving
+            viewModel.saveResults()
         }
         dismiss(animated: true)
     }
@@ -259,7 +259,7 @@ private extension GameViewController {
         ])
     }
     
-    func setupAlertWith(results: GameResults) {
+    func setupAlertWith(_ results: GameResults) {
         let message = "\(String.totalShots): \(results.shots); \(String.totalHits): \(results.hits)"
         let alert = UIAlertController(title: .gameOver, message: message, preferredStyle: .alert)
         alert.view.tintColor = .green

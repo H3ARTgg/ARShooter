@@ -13,6 +13,7 @@ protocol GameViewModelProtocol {
     func startCoundownTimer()
     func startTimeLeftTimer()
     func addShot()
+    func saveResults()
 }
 
 final class GameViewModel: GameViewModelProtocol {
@@ -61,6 +62,10 @@ final class GameViewModel: GameViewModelProtocol {
     
     func addShot() {
         allShots += 1
+    }
+    
+    func saveResults() {
+        Storage.saveGameResults(GameResults(shots: allShots, hits: scoreSubject.value, date: Date()))
     }
     
     private func makeResults() {
