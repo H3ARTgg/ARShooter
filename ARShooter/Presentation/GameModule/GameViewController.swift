@@ -11,6 +11,7 @@ final class GameViewController: UIViewController {
     private let timeLeftLabel = UILabel()
     private let timeLeftSecondsLabel = UILabel()
     private let scoreLabel = UILabel()
+    private lazy var tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTap))
     private lazy var shootButton = UIButton.systemButton(with: .shoot.withRenderingMode(.alwaysOriginal), target: self, action: #selector(didTapShoot))
     private var cancellables: Set<AnyCancellable> = []
     private let viewModel: GameViewModelProtocol
@@ -79,7 +80,6 @@ final class GameViewController: UIViewController {
         setupShootButton(shootButton)
         let backgroundSphereNode = Background.makeBackgroundNode()
         sceneView.scene.rootNode.addChildNode(backgroundSphereNode)
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTap))
         sceneView.addGestureRecognizer(tapGestureRecognizer)
         binds()
     }
@@ -144,6 +144,7 @@ final class GameViewController: UIViewController {
             .receive(on: DispatchQueue.main)
             .sink { [weak self] results in
                 guard let self else { return }
+                self.sceneView.removeGestureRecognizer(self.tapGestureRecognizer)
                 self.shootButton.isEnabled = false
                 self.shootButton.alpha = 0.5
                 self.setupAlertWith(results)
