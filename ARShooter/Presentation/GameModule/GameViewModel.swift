@@ -35,9 +35,8 @@ final class GameViewModel: GameViewModelProtocol {
     }
     private var backgroundBoundingBox: (min: SCNVector3, max: SCNVector3) = (min: SCNVector3(), max: SCNVector3())
     private(set) var allShots: Int = 0
-    private lazy var countdownTimer = Timer()
+    private lazy var timer = Timer()
     private lazy var timeLeftTimer = Timer()
-    private lazy var targetSpawnTimer = Timer()
     private let scoreSubject = CurrentValueSubject<Int, Never>(0)
     private let timeLeftInSecondsSubject = CurrentValueSubject<Double, Never>(Consts.timeLeft)
     private let countdownSecondsSubject = CurrentValueSubject<Double, Never>(Consts.countdownToStart)
@@ -45,7 +44,7 @@ final class GameViewModel: GameViewModelProtocol {
     private var resultsSubject = PassthroughSubject<GameResults, Never>()
     
     func startCoundownTimer() {
-        countdownTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(didUpdateCountdownTimer), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(didUpdateCountdownTimer), userInfo: nil, repeats: true)
     }
     
     func startTimeLeftTimer() {
@@ -54,7 +53,7 @@ final class GameViewModel: GameViewModelProtocol {
     
     func startTargetSpawn(within backgroundBoundingBox: (min: SCNVector3, max: SCNVector3)) {
         self.backgroundBoundingBox = backgroundBoundingBox
-        targetSpawnTimer = Timer.scheduledTimer(timeInterval: Consts.targetSpawnInterval, target: self, selector: #selector(didUpdateTargetSpawnTimer), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: Consts.targetSpawnInterval, target: self, selector: #selector(didUpdateTargetSpawnTimer), userInfo: nil, repeats: true)
     }
     
     func addScore() {
@@ -80,15 +79,15 @@ private extension GameViewModel {
     private func didUpdateCountdownTimer() {
         countdownSecondsSubject.value -= 1
         if countdownSecondsSubject.value < 0 {
-            countdownTimer.invalidate()
+            timer.invalidate()
         }
     }
     
     @objc
     private func didUpdateTimeLeftTimer() {
         if timeLeftInSecondsSubject.value <= 0.1 {
+            timer.invalidate()
             timeLeftTimer.invalidate()
-            targetSpawnTimer.invalidate()
             timeLeftInSecondsSubject.value = 0.0
             makeResults()
         } else {
