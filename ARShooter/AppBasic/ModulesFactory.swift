@@ -8,4 +8,10 @@ final class ModulesFactory {
         let vc = GameViewController(viewModel: vm)
         return vc
     }
+    
+    static func makeLeaderboardsModule() -> Presentable {
+        let vm = LeaderboardsViewModel()
+        let vc = LeaderboardsViewController(viewModel: vm)
+        return vc
+    }
 }
