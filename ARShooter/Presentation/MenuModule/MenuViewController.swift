@@ -3,14 +3,8 @@ import UIKit
 final class MenuViewController: UIViewController {
     private let backgroundImageView = UIImageView()
     private let gameNameLabel = UILabel()
-    private lazy var playButton: UIButton = {
-        let button = UIButton.systemButton(with: UIImage(), target: self, action: #selector(didTapPlayButton))
-        return button
-    }()
-    private lazy var leaderboardsButton: UIButton = {
-        let button = UIButton.systemButton(with: UIImage(), target: self, action: #selector(didTapLeaderboardsButton))
-        return button
-    }()
+    private lazy var playButton = UIButton.systemButton(with: UIImage(), target: self, action: #selector(didTapPlayButton))
+    private lazy var leaderboardsButton = UIButton.systemButton(with: UIImage(), target: self, action: #selector(didTapLeaderboardsButton))
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -11,10 +11,7 @@ final class GameViewController: UIViewController {
     private let timeLeftLabel = UILabel()
     private let timeLeftSecondsLabel = UILabel()
     private let scoreLabel = UILabel()
-    private lazy var shootButton: UIButton = {
-        let button = UIButton.systemButton(with: .shoot.withRenderingMode(.alwaysOriginal), target: self, action: #selector(didTapShoot))
-        return button
-    }()
+    private lazy var shootButton = UIButton.systemButton(with: .shoot.withRenderingMode(.alwaysOriginal), target: self, action: #selector(didTapShoot))
     private var cancellables: Set<AnyCancellable> = []
     private let viewModel: GameViewModelProtocol
     
@@ -79,6 +76,7 @@ final class GameViewController: UIViewController {
     
     private func configureViewController() {
         setupSceneView(sceneView, with: mainScene)
+        setupShootButton(shootButton)
         let backgroundSphereNode = Background.makeBackgroundNode()
         sceneView.scene.rootNode.addChildNode(backgroundSphereNode)
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTap))
@@ -88,8 +86,9 @@ final class GameViewController: UIViewController {
     
     private func setupAfterCountdown() {
         countdownLabel.removeFromSuperview()
+        shootButton.isEnabled = true
+        shootButton.alpha = 1
         setupCrosshairImageView(crosshairImageView)
-        setupShootButton(shootButton)
         setupTimeLeftLabel(timeLeftLabel)
         setupTimeLeftSecondsLabel(timeLeftSecondsLabel)
         setupScoreLabel(scoreLabel)
@@ -144,7 +143,10 @@ final class GameViewController: UIViewController {
         viewModel.resultsPublisher
             .receive(on: DispatchQueue.main)
             .sink { [weak self] results in
-                self?.setupAlertWith(results)
+                guard let self else { return }
+                self.shootButton.isEnabled = false
+                self.shootButton.alpha = 0.5
+                self.setupAlertWith(results)
             }
             .store(in: &cancellables)
     }
@@ -203,6 +205,8 @@ private extension GameViewController {
     
     func setupShootButton(_ button: UIButton) {
         button.setTitle(nil, for: .normal)
+        button.isEnabled = false
+        button.alpha = 0.5
         button.translatesAutoresizingMaskIntoConstraints = false
         
         view.addSubview(button)

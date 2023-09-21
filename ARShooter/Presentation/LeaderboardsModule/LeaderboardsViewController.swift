@@ -4,10 +4,7 @@ final class LeaderboardsViewController: UIViewController {
     private let backgroundImageView = UIImageView()
     private let leaderboardsLabel = UILabel()
     private let leaderboardsTableView = UITableView(frame: .zero)
-    private lazy var exitButton: UIButton = {
-        let button = UIButton.systemButton(with: .xMark, target: self, action: #selector(didTapExit))
-        return button
-    }()
+    private lazy var exitButton = UIButton.systemButton(with: .xMark, target: self, action: #selector(didTapExit))
     private let viewModel: LeaderboardsViewModelProtocol
     
     override func viewDidLoad() {
