@@ -7,8 +7,8 @@ final class MenuViewController: UIViewController {
         let button = UIButton.systemButton(with: UIImage(), target: self, action: #selector(didTapPlayButton))
         return button
     }()
-    private lazy var statisticsButton: UIButton = {
-        let button = UIButton.systemButton(with: UIImage(), target: self, action: #selector(didTapStatisticsButton))
+    private lazy var leaderboardsButton: UIButton = {
+        let button = UIButton.systemButton(with: UIImage(), target: self, action: #selector(didTapLeaderboardsButton))
         return button
     }()
     
@@ -24,8 +24,9 @@ final class MenuViewController: UIViewController {
     }
     
     @objc
-    private func didTapStatisticsButton() {
-        
+    private func didTapLeaderboardsButton() {
+        guard let leaderboardsVC = ModulesFactory.makeLeaderboardsModule().toPresent() else { return }
+        present(leaderboardsVC, animated: true)
     }
     
     private func configureViewController() {
@@ -33,7 +34,7 @@ final class MenuViewController: UIViewController {
         configureBackgroundImageView(backgroundImageView)
         configureGameNameLabel(gameNameLabel)
         configurePlayButton(playButton)
-        configureStatisticsButton(statisticsButton)
+        configureStatisticsButton(leaderboardsButton)
         addSubviews()
         addConstraints()
     }
@@ -42,7 +43,7 @@ final class MenuViewController: UIViewController {
 // MARK: - UI
 private extension MenuViewController {
     func addSubviews() {
-        [backgroundImageView, gameNameLabel, playButton, statisticsButton].forEach {
+        [backgroundImageView, gameNameLabel, playButton, leaderboardsButton].forEach {
             $0.translatesAutoresizingMaskIntoConstraints = false
             view.addSubview($0)
         }
@@ -63,9 +64,9 @@ private extension MenuViewController {
             playButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40),
             playButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40),
             
-            statisticsButton.topAnchor.constraint(equalTo: playButton.bottomAnchor, constant: 20),
-            statisticsButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40),
-            statisticsButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40)
+            leaderboardsButton.topAnchor.constraint(equalTo: playButton.bottomAnchor, constant: 20),
+            leaderboardsButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40),
+            leaderboardsButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40)
         ])
     }
     
