@@ -24,6 +24,7 @@
 		1DCD833F2ABBB46D009C749A /* GameResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DCD833E2ABBB46D009C749A /* GameResults.swift */; };
 		1DCD83412ABBC2A5009C749A /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DCD83402ABBC2A5009C749A /* Storage.swift */; };
 		1DCD83432ABBC33D009C749A /* UserDefaults + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DCD83422ABBC33D009C749A /* UserDefaults + Extension.swift */; };
+		1DCD834E2ABC9672009C749A /* UIFont + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DCD834D2ABC9672009C749A /* UIFont + Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		1DCD833E2ABBB46D009C749A /* GameResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameResults.swift; sourceTree = "<group>"; };
 		1DCD83402ABBC2A5009C749A /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 		1DCD83422ABBC33D009C749A /* UserDefaults + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults + Extension.swift"; sourceTree = "<group>"; };
+		1DCD834D2ABC9672009C749A /* UIFont + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont + Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +152,7 @@
 		1DCD83242ABA371E009C749A /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				1DCD834D2ABC9672009C749A /* UIFont + Extension.swift */,
 				1DCD83252ABA372A009C749A /* UIImage + Extension.swift */,
 				1DCD83382ABA44BC009C749A /* UIViewController + Extension.swift */,
 			);
@@ -252,6 +255,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1DCD833F2ABBB46D009C749A /* GameResults.swift in Sources */,
+				1DCD834E2ABC9672009C749A /* UIFont + Extension.swift in Sources */,
 				1DCD83192ABA30FB009C749A /* GameViewModel.swift in Sources */,
 				1DCD83342ABA3ECB009C749A /* String + Extension.swift in Sources */,
 				1DCD83292ABA3A78009C749A /* MenuViewController.swift in Sources */,

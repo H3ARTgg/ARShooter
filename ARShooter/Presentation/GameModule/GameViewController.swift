@@ -176,7 +176,7 @@ private extension GameViewController {
     func setupCountdownLabel(_ label: UILabel) {
         label.text = "3"
         label.textColor = .white
-        label.font = .systemFont(ofSize: 50, weight: .bold)
+        label.font = .bold50
         label.translatesAutoresizingMaskIntoConstraints = false
         
         view.addSubview(label)
@@ -218,7 +218,7 @@ private extension GameViewController {
     func setupTimeLeftLabel(_ label: UILabel) {
         label.text = "\(String.timeLeft): "
         label.textColor = .white
-        label.font = .systemFont(ofSize: 20, weight: .semibold)
+        label.font = .semibold20
         label.translatesAutoresizingMaskIntoConstraints = false
         
         view.addSubview(label)
@@ -233,7 +233,7 @@ private extension GameViewController {
         label.text = "60.0 \(String.seconds)"
         label.textAlignment = .center
         label.textColor = .white
-        label.font = .systemFont(ofSize: 20, weight: .semibold)
+        label.font = .semibold20
         label.translatesAutoresizingMaskIntoConstraints = false
         
         view.addSubview(label)
@@ -248,7 +248,7 @@ private extension GameViewController {
     func setupScoreLabel(_ label: UILabel) {
         label.text = "\(String.score): 0"
         label.textColor = .white
-        label.font = .systemFont(ofSize: 20, weight: .semibold)
+        label.font = .semibold20
         label.translatesAutoresizingMaskIntoConstraints = false
         
         view.addSubview(label)
