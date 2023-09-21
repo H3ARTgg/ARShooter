@@ -8,6 +8,7 @@ final class SphereTarget {
         sphereNode.name = name
         let material = SCNMaterial()
         material.isDoubleSided = true
+        material.blendMode = .replace
         material.diffuse.contents = UIImage.sphereTexture
         sphereNode.geometry?.materials = [material]
         sphereNode.position = position
