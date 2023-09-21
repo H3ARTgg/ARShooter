@@ -29,6 +29,9 @@
 		1DCD83492ABC9435009C749A /* LeaderboardsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DCD83482ABC9435009C749A /* LeaderboardsCell.swift */; };
 		1DCD834C2ABC946D009C749A /* LeaderboardsCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DCD834B2ABC946D009C749A /* LeaderboardsCellModel.swift */; };
 		1DCD834E2ABC9672009C749A /* UIFont + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DCD834D2ABC9672009C749A /* UIFont + Extension.swift */; };
+		1DCD83532ABCAF43009C749A /* countdown.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1DCD83502ABCAF43009C749A /* countdown.mp3 */; };
+		1DCD83542ABCAF43009C749A /* laserShot.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1DCD83512ABCAF43009C749A /* laserShot.mp3 */; };
+		1DCD83552ABCAF43009C749A /* targetSpawn.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1DCD83522ABCAF43009C749A /* targetSpawn.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +59,9 @@
 		1DCD83482ABC9435009C749A /* LeaderboardsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardsCell.swift; sourceTree = "<group>"; };
 		1DCD834B2ABC946D009C749A /* LeaderboardsCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardsCellModel.swift; sourceTree = "<group>"; };
 		1DCD834D2ABC9672009C749A /* UIFont + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont + Extension.swift"; sourceTree = "<group>"; };
+		1DCD83502ABCAF43009C749A /* countdown.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = countdown.mp3; sourceTree = "<group>"; };
+		1DCD83512ABCAF43009C749A /* laserShot.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = laserShot.mp3; sourceTree = "<group>"; };
+		1DCD83522ABCAF43009C749A /* targetSpawn.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = targetSpawn.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +97,7 @@
 				1DCD831A2ABA3101009C749A /* App */,
 				1DCD83352ABA4455009C749A /* AppBasic */,
 				1DCD831C2ABA3126009C749A /* Presentation */,
+				1DCD83582ABCAFEE009C749A /* Services */,
 				1DCD83212ABA335D009C749A /* Helpers */,
 				1DCD831B2ABA310A009C749A /* Resources */,
 			);
@@ -108,6 +115,7 @@
 		1DCD831B2ABA310A009C749A /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				1DCD834F2ABCAEE9009C749A /* Sounds */,
 				1DCD830E2ABA2F64009C749A /* LaunchScreen.storyboard */,
 				1DCD830C2ABA2F64009C749A /* Assets.xcassets */,
 				1DCD83312ABA3E9C009C749A /* Localizable.strings */,
@@ -118,7 +126,6 @@
 		1DCD831C2ABA3126009C749A /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				1DCD83402ABBC2A5009C749A /* Storage.swift */,
 				1DCD833E2ABBB46D009C749A /* GameResults.swift */,
 				1DCD83272ABA3A47009C749A /* MenuModule */,
 				1DCD831D2ABA3138009C749A /* GameModule */,
@@ -202,6 +209,24 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		1DCD834F2ABCAEE9009C749A /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				1DCD83502ABCAF43009C749A /* countdown.mp3 */,
+				1DCD83512ABCAF43009C749A /* laserShot.mp3 */,
+				1DCD83522ABCAF43009C749A /* targetSpawn.mp3 */,
+			);
+			path = Sounds;
+			sourceTree = "<group>";
+		};
+		1DCD83582ABCAFEE009C749A /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				1DCD83402ABBC2A5009C749A /* Storage.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -261,8 +286,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1DCD83532ABCAF43009C749A /* countdown.mp3 in Resources */,
+				1DCD83552ABCAF43009C749A /* targetSpawn.mp3 in Resources */,
 				1DCD83102ABA2F64009C749A /* LaunchScreen.storyboard in Resources */,
 				1DCD832F2ABA3E9C009C749A /* Localizable.strings in Resources */,
+				1DCD83542ABCAF43009C749A /* laserShot.mp3 in Resources */,
 				1DCD830D2ABA2F64009C749A /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
