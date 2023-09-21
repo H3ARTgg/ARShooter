@@ -105,6 +105,7 @@ private extension LeaderboardsViewController {
         tableView.separatorStyle = .none
         tableView.layer.cornerRadius = 15
         tableView.layer.masksToBounds = true
+        tableView.allowsSelection = false
     }
     
     func configureExitButton(_ button: UIButton) {
