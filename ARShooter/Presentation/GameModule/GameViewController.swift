@@ -144,10 +144,8 @@ final class GameViewController: UIViewController {
             .receive(on: DispatchQueue.main)
             .sink { [weak self] results in
                 guard let self else { return }
-                self.sceneView.removeGestureRecognizer(self.tapGestureRecognizer)
-                self.shootButton.isEnabled = false
-                self.shootButton.alpha = 0.5
-                self.setupAlertWith(results)
+                self.gameEnds()
+                self.setupEndGameAlertWith(results)
             }
             .store(in: &cancellables)
     }
@@ -157,6 +155,17 @@ final class GameViewController: UIViewController {
             viewModel.saveResults()
         }
         dismiss(animated: true)
+    }
+    
+    private func gameEnds() {
+        sceneView.removeGestureRecognizer(tapGestureRecognizer)
+        for node in sceneView.scene.rootNode.childNodes {
+            if node.name == SphereTarget.name {
+                node.removeFromParentNode()
+            }
+        }
+        shootButton.isEnabled = false
+        shootButton.alpha = 0.5
     }
 }
 
@@ -264,7 +273,7 @@ private extension GameViewController {
         ])
     }
     
-    func setupAlertWith(_ results: GameResults) {
+    func setupEndGameAlertWith(_ results: GameResults) {
         let message = "\(String.totalShots): \(results.shots); \(String.totalHits): \(results.hits)"
         let alert = UIAlertController(title: .gameOver, message: message, preferredStyle: .alert)
         alert.view.tintColor = .green
