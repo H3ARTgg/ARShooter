@@ -5,6 +5,7 @@ final class MenuViewController: UIViewController {
     private let gameNameLabel = UILabel()
     private lazy var playButton = UIButton.systemButton(with: UIImage(), target: self, action: #selector(didTapPlayButton))
     private lazy var leaderboardsButton = UIButton.systemButton(with: UIImage(), target: self, action: #selector(didTapLeaderboardsButton))
+    private lazy var tutorialButton = UIButton.systemButton(with: UIImage(), target: self, action: #selector(didTapTutorial))
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,12 +24,20 @@ final class MenuViewController: UIViewController {
         present(leaderboardsVC, animated: true)
     }
     
+    @objc
+    private func didTapTutorial() {
+        guard let tutorialVC = ModulesFactory.makeTutorialModule().toPresent() else { return }
+        present(tutorialVC, animated: true)
+    }
+    
     private func configureViewController() {
         view.backgroundColor = .brown
         configureBackgroundImageView(backgroundImageView)
         configureGameNameLabel(gameNameLabel)
         configurePlayButton(playButton)
-        configureStatisticsButton(leaderboardsButton)
+        configureLeaderboardsButton(leaderboardsButton)
+        configureTutorialButton(tutorialButton)
+        
         addSubviews()
         addConstraints()
     }
@@ -37,7 +46,7 @@ final class MenuViewController: UIViewController {
 // MARK: - UI
 private extension MenuViewController {
     func addSubviews() {
-        [backgroundImageView, gameNameLabel, playButton, leaderboardsButton].forEach {
+        [backgroundImageView, gameNameLabel, playButton, leaderboardsButton, tutorialButton].forEach {
             $0.translatesAutoresizingMaskIntoConstraints = false
             view.addSubview($0)
         }
@@ -58,7 +67,11 @@ private extension MenuViewController {
             playButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40),
             playButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40),
             
-            leaderboardsButton.topAnchor.constraint(equalTo: playButton.bottomAnchor, constant: 20),
+            tutorialButton.topAnchor.constraint(equalTo: playButton.bottomAnchor, constant: 20),
+            tutorialButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40),
+            tutorialButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40),
+            
+            leaderboardsButton.topAnchor.constraint(equalTo: tutorialButton.bottomAnchor, constant: 20),
             leaderboardsButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40),
             leaderboardsButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40)
         ])
@@ -83,9 +96,17 @@ private extension MenuViewController {
         button.titleLabel?.font = .systemFont(ofSize: 30, weight: .semibold)
     }
     
-    func configureStatisticsButton(_ button: UIButton) {
+    func configureLeaderboardsButton(_ button: UIButton) {
         button.setImage(nil, for: .normal)
         button.setTitle(.leaderboards, for: .normal)
+        button.tintColor = .white
+        button.titleLabel?.textColor = .white
+        button.titleLabel?.font = .systemFont(ofSize: 30, weight: .semibold)
+    }
+    
+    func configureTutorialButton(_ button: UIButton) {
+        button.setImage(nil, for: .normal)
+        button.setTitle("Tutorial", for: .normal)
         button.tintColor = .white
         button.titleLabel?.textColor = .white
         button.titleLabel?.font = .systemFont(ofSize: 30, weight: .semibold)
