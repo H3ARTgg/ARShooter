@@ -16,4 +16,7 @@ final class Consts {
     static let countdownSound = "countdown"
     static let laserShotSound = "laserShot"
     static let targetSpawnSound = "targetSpawn"
+    
+    //Video
+    static let gameplayVideo = "gameplay"
 }
