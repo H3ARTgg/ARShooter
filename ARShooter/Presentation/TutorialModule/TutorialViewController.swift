@@ -111,8 +111,8 @@ final class TutorialViewController: UIViewController {
 private extension TutorialViewController {
     func addNodes() {
         let background = Background.makeBackgroundNode()
-        let descriptionText = DescriptionText.populate(at: SCNVector3(-0.8, -0.4, -2))
-        let tapMeText = TapMeText.populate(at: SCNVector3(-0.8, -0.6, -2))
+        let descriptionText = DescriptionText.populate(at: SCNVector3(-1, -0.5, -2))
+        let tapMeText = TapMeText.populate(at: SCNVector3(-0.9, -0.6, -2))
         
         [background, descriptionText, tapMeText].forEach {
             sceneView.scene.rootNode.addChildNode($0)

@@ -35,7 +35,7 @@ final class TutorialViewModel: TutorialViewModelProtocol {
     
     func getVideoScreen() {
         loopScreenTimer = Timer.scheduledTimer(timeInterval: 14, target: self, selector: #selector(didUpdateTimer), userInfo: nil, repeats: true)
-        let screen = VideoScreen.populate(at: SCNVector3(1, -0.3, -2))
+        let screen = VideoScreen.populate(at: SCNVector3(0.95, -0.3, -2))
         newVideoScreenSubject.send(screen)
     }
     
