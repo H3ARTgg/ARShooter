@@ -33,10 +33,12 @@
 		1DCD83542ABCAF43009C749A /* laserShot.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1DCD83512ABCAF43009C749A /* laserShot.mp3 */; };
 		1DCD83552ABCAF43009C749A /* targetSpawn.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1DCD83522ABCAF43009C749A /* targetSpawn.mp3 */; };
 		1DCD83572ABCAF63009C749A /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DCD83562ABCAF63009C749A /* AudioManager.swift */; };
+		1DDDE0E32ABDB012008E74FB /* TutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DDDE0E22ABDB012008E74FB /* TutorialViewController.swift */; };
 		1DDDE0E62ABDB221008E74FB /* VideoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DDDE0E52ABDB221008E74FB /* VideoManager.swift */; };
 		1DDDE0E82ABDB686008E74FB /* TapMeText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DDDE0E72ABDB686008E74FB /* TapMeText.swift */; };
 		1DDDE0EA2ABDB6AB008E74FB /* DescriptionText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DDDE0E92ABDB6AB008E74FB /* DescriptionText.swift */; };
 		1DDDE0EC2ABDB6D1008E74FB /* VideoScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DDDE0EB2ABDB6D1008E74FB /* VideoScreen.swift */; };
+		1DDDE0EE2ABDBAFF008E74FB /* TutorialViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DDDE0ED2ABDBAFF008E74FB /* TutorialViewModel.swift */; };
 		1DDDE0F42ABDD991008E74FB /* gameplay.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 1DDDE0F32ABDD760008E74FB /* gameplay.mp4 */; };
 /* End PBXBuildFile section */
 
@@ -69,10 +71,12 @@
 		1DCD83512ABCAF43009C749A /* laserShot.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = laserShot.mp3; sourceTree = "<group>"; };
 		1DCD83522ABCAF43009C749A /* targetSpawn.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = targetSpawn.mp3; sourceTree = "<group>"; };
 		1DCD83562ABCAF63009C749A /* AudioManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioManager.swift; sourceTree = "<group>"; };
+		1DDDE0E22ABDB012008E74FB /* TutorialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialViewController.swift; sourceTree = "<group>"; };
 		1DDDE0E52ABDB221008E74FB /* VideoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoManager.swift; sourceTree = "<group>"; };
 		1DDDE0E72ABDB686008E74FB /* TapMeText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapMeText.swift; sourceTree = "<group>"; };
 		1DDDE0E92ABDB6AB008E74FB /* DescriptionText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionText.swift; sourceTree = "<group>"; };
 		1DDDE0EB2ABDB6D1008E74FB /* VideoScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoScreen.swift; sourceTree = "<group>"; };
+		1DDDE0ED2ABDBAFF008E74FB /* TutorialViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialViewModel.swift; sourceTree = "<group>"; };
 		1DDDE0F32ABDD760008E74FB /* gameplay.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = gameplay.mp4; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -246,6 +250,8 @@
 			isa = PBXGroup;
 			children = (
 				1DDDE0E42ABDB017008E74FB /* Models */,
+				1DDDE0E22ABDB012008E74FB /* TutorialViewController.swift */,
+				1DDDE0ED2ABDBAFF008E74FB /* TutorialViewModel.swift */,
 			);
 			path = TutorialModule;
 			sourceTree = "<group>";
@@ -354,8 +360,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				1DCD833F2ABBB46D009C749A /* GameResults.swift in Sources */,
+				1DDDE0E32ABDB012008E74FB /* TutorialViewController.swift in Sources */,
 				1DCD834C2ABC946D009C749A /* LeaderboardsCellModel.swift in Sources */,
 				1DCD834E2ABC9672009C749A /* UIFont + Extension.swift in Sources */,
+				1DDDE0EE2ABDBAFF008E74FB /* TutorialViewModel.swift in Sources */,
 				1DCD83192ABA30FB009C749A /* GameViewModel.swift in Sources */,
 				1DCD83342ABA3ECB009C749A /* String + Extension.swift in Sources */,
 				1DCD83292ABA3A78009C749A /* MenuViewController.swift in Sources */,
