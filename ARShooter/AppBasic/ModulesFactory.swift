@@ -14,4 +14,10 @@ final class ModulesFactory {
         let vc = LeaderboardsViewController(viewModel: vm)
         return vc
     }
+    
+    static func makeTutorialModule() -> Presentable {
+        let vm = TutorialViewModel()
+        let vc = TutorialViewController(viewModel: vm)
+        return vc
+    }
 }
