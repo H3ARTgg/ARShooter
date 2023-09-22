@@ -55,10 +55,9 @@ final class GameViewController: UIViewController {
         viewModel.addShot()
         let sceneView = sceneView as SCNView
         let touchLocation = CGPoint(x: view.frame.width / 2, y: view.frame.height / 2)
-        if let node = getNodeFrom(sceneView, for: touchLocation) {
-            viewModel.addScore()
-            node.removeFromParentNode()
-        }
+        guard let node = getNodeFrom(sceneView, for: touchLocation), node.name == SphereTarget.name else { return }
+        viewModel.addScore()
+        node.removeFromParentNode()
     }
     
     @objc
@@ -66,21 +65,14 @@ final class GameViewController: UIViewController {
         viewModel.addShot()
         let sceneView = touch.view as! SCNView
         let touchLocation = touch.location(in: sceneView)
-        if let node = getNodeFrom(sceneView, for: touchLocation) {
+        guard let node = getNodeFrom(sceneView, for: touchLocation), node.name == SphereTarget.name else { return }
             viewModel.addScore()
             node.removeFromParentNode()
-        }
-    }
-    
-    private func getNodeFrom(_ sceneView: SCNView, for location: CGPoint) -> SCNNode? {
-        let touchResult = sceneView.hitTest(location)
-        guard !touchResult.isEmpty, let node = touchResult.first?.node, node.name == SphereTarget.name else { return nil }
-        return node
     }
     
     private func configureViewController() {
         setupSceneView(sceneView, with: mainScene)
-        setupShootButton(shootButton)
+        setupShootButton(&shootButton, action: #selector(didTapShoot))
         let backgroundSphereNode = Background.makeBackgroundNode()
         sceneView.scene.rootNode.addChildNode(backgroundSphereNode)
         sceneView.addGestureRecognizer(tapGestureRecognizer)
@@ -174,21 +166,6 @@ final class GameViewController: UIViewController {
 
 // MARK: - UI
 private extension GameViewController {
-    func setupSceneView(_ sceneView: ARSCNView, with scene: SCNScene) {
-        sceneView.showsStatistics = false
-        sceneView.scene = scene
-        sceneView.scene.rootNode.flattenedClone()
-        sceneView.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(sceneView)
-        
-        NSLayoutConstraint.activate([
-            sceneView.topAnchor.constraint(equalTo: view.topAnchor),
-            sceneView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            sceneView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            sceneView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
-        ])
-    }
-    
     func setupCountdownLabel(_ label: UILabel) {
         label.text = "3"
         label.textColor = .white
@@ -200,36 +177,6 @@ private extension GameViewController {
         NSLayoutConstraint.activate([
             label.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             label.centerYAnchor.constraint(equalTo: view.centerYAnchor)
-        ])
-    }
-    
-    func setupCrosshairImageView(_ imageView: UIImageView) {
-        imageView.image = .crosshair
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        
-        view.addSubview(imageView)
-        
-        NSLayoutConstraint.activate([
-            imageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            imageView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            imageView.heightAnchor.constraint(equalToConstant: 150),
-            imageView.widthAnchor.constraint(equalToConstant: 150)
-        ])
-    }
-    
-    func setupShootButton(_ button: UIButton) {
-        button.setTitle(nil, for: .normal)
-        button.isEnabled = false
-        button.alpha = 0.5
-        button.translatesAutoresizingMaskIntoConstraints = false
-        
-        view.addSubview(button)
-        
-        NSLayoutConstraint.activate([
-            button.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            button.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20),
-            button.heightAnchor.constraint(equalToConstant: 100),
-            button.widthAnchor.constraint(equalToConstant: 100)
         ])
     }
     
