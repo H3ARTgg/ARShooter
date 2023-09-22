@@ -41,7 +41,7 @@ final class GameViewModel: GameViewModelProtocol {
     private let timeLeftInSecondsSubject = CurrentValueSubject<Double, Never>(Consts.timeLeft)
     private let countdownSecondsSubject = CurrentValueSubject<Double, Never>(Consts.countdownToStart)
     private let targetSubject = CurrentValueSubject<SCNNode, Never>(SCNNode())
-    private var resultsSubject = PassthroughSubject<GameResults, Never>()
+    private let resultsSubject = PassthroughSubject<GameResults, Never>()
     
     func startCoundownTimer() {
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(didUpdateCountdownTimer), userInfo: nil, repeats: true)
