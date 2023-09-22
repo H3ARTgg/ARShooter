@@ -142,6 +142,8 @@
 		1DCD831C2ABA3126009C749A /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				1DCD833A2ABB204D009C749A /* SphereTarget.swift */,
+				1DCD83222ABA36D1009C749A /* Background.swift */,
 				1DCD833E2ABBB46D009C749A /* GameResults.swift */,
 				1DCD83272ABA3A47009C749A /* MenuModule */,
 				1DCD831D2ABA3138009C749A /* GameModule */,
@@ -154,20 +156,10 @@
 		1DCD831D2ABA3138009C749A /* GameModule */ = {
 			isa = PBXGroup;
 			children = (
-				1DCD83202ABA3251009C749A /* Models */,
 				1DCD83182ABA30FB009C749A /* GameViewModel.swift */,
 				1DCD83072ABA2F62009C749A /* GameViewController.swift */,
 			);
 			path = GameModule;
-			sourceTree = "<group>";
-		};
-		1DCD83202ABA3251009C749A /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				1DCD83222ABA36D1009C749A /* Background.swift */,
-				1DCD833A2ABB204D009C749A /* SphereTarget.swift */,
-			);
-			path = Models;
 			sourceTree = "<group>";
 		};
 		1DCD83212ABA335D009C749A /* Helpers */ = {
