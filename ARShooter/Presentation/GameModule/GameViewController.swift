@@ -34,8 +34,11 @@ final class GameViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        setupCountdownLabel(countdownLabel)
-        viewModel.startCoundownTimer()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) { [weak self] in
+            guard let self else { return }
+            self.setupCountdownLabel(self.countdownLabel)
+            self.viewModel.startCoundownTimer()
+        }
     }
     
     init(viewModel: GameViewModelProtocol) {
