@@ -174,6 +174,7 @@ private extension GameViewController {
     func setupSceneView(_ sceneView: ARSCNView, with scene: SCNScene) {
         sceneView.showsStatistics = false
         sceneView.scene = scene
+        sceneView.scene.rootNode.flattenedClone()
         sceneView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(sceneView)
         
