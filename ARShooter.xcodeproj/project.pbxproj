@@ -35,6 +35,7 @@
 		1DCD83572ABCAF63009C749A /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DCD83562ABCAF63009C749A /* AudioManager.swift */; };
 		1DDDE0E62ABDB221008E74FB /* VideoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DDDE0E52ABDB221008E74FB /* VideoManager.swift */; };
 		1DDDE0E82ABDB686008E74FB /* TapMeText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DDDE0E72ABDB686008E74FB /* TapMeText.swift */; };
+		1DDDE0EA2ABDB6AB008E74FB /* DescriptionText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DDDE0E92ABDB6AB008E74FB /* DescriptionText.swift */; };
 		1DDDE0F42ABDD991008E74FB /* gameplay.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 1DDDE0F32ABDD760008E74FB /* gameplay.mp4 */; };
 /* End PBXBuildFile section */
 
@@ -69,6 +70,7 @@
 		1DCD83562ABCAF63009C749A /* AudioManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioManager.swift; sourceTree = "<group>"; };
 		1DDDE0E52ABDB221008E74FB /* VideoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoManager.swift; sourceTree = "<group>"; };
 		1DDDE0E72ABDB686008E74FB /* TapMeText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapMeText.swift; sourceTree = "<group>"; };
+		1DDDE0E92ABDB6AB008E74FB /* DescriptionText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionText.swift; sourceTree = "<group>"; };
 		1DDDE0F32ABDD760008E74FB /* gameplay.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = gameplay.mp4; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -249,6 +251,7 @@
 		1DDDE0E42ABDB017008E74FB /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				1DDDE0E92ABDB6AB008E74FB /* DescriptionText.swift */,
 				1DDDE0E72ABDB686008E74FB /* TapMeText.swift */,
 			);
 			path = Models;
@@ -363,6 +366,7 @@
 				1DCD83262ABA372A009C749A /* UIImage + Extension.swift in Sources */,
 				1DCD833B2ABB204E009C749A /* SphereTarget.swift in Sources */,
 				1DCD83472ABC91DB009C749A /* LeaderboardsViewModel.swift in Sources */,
+				1DDDE0EA2ABDB6AB008E74FB /* DescriptionText.swift in Sources */,
 				1DCD83452ABC91AC009C749A /* LeaderboardsViewController.swift in Sources */,
 				1DCD833D2ABB974C009C749A /* Consts.swift in Sources */,
 				1DCD83372ABA4467009C749A /* ModulesFactory.swift in Sources */,
