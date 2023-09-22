@@ -34,6 +34,7 @@
 		1DCD83552ABCAF43009C749A /* targetSpawn.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1DCD83522ABCAF43009C749A /* targetSpawn.mp3 */; };
 		1DCD83572ABCAF63009C749A /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DCD83562ABCAF63009C749A /* AudioManager.swift */; };
 		1DDDE0E62ABDB221008E74FB /* VideoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DDDE0E52ABDB221008E74FB /* VideoManager.swift */; };
+		1DDDE0E82ABDB686008E74FB /* TapMeText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DDDE0E72ABDB686008E74FB /* TapMeText.swift */; };
 		1DDDE0F42ABDD991008E74FB /* gameplay.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 1DDDE0F32ABDD760008E74FB /* gameplay.mp4 */; };
 /* End PBXBuildFile section */
 
@@ -67,6 +68,7 @@
 		1DCD83522ABCAF43009C749A /* targetSpawn.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = targetSpawn.mp3; sourceTree = "<group>"; };
 		1DCD83562ABCAF63009C749A /* AudioManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioManager.swift; sourceTree = "<group>"; };
 		1DDDE0E52ABDB221008E74FB /* VideoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoManager.swift; sourceTree = "<group>"; };
+		1DDDE0E72ABDB686008E74FB /* TapMeText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapMeText.swift; sourceTree = "<group>"; };
 		1DDDE0F32ABDD760008E74FB /* gameplay.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = gameplay.mp4; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -135,6 +137,7 @@
 				1DCD833E2ABBB46D009C749A /* GameResults.swift */,
 				1DCD83272ABA3A47009C749A /* MenuModule */,
 				1DCD831D2ABA3138009C749A /* GameModule */,
+				1DDDE0E12ABDAFF5008E74FB /* TutorialModule */,
 				1DCD832C2ABA3AFC009C749A /* LeaderboardsModule */,
 			);
 			path = Presentation;
@@ -233,6 +236,22 @@
 				1DCD83402ABBC2A5009C749A /* Storage.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		1DDDE0E12ABDAFF5008E74FB /* TutorialModule */ = {
+			isa = PBXGroup;
+			children = (
+				1DDDE0E42ABDB017008E74FB /* Models */,
+			);
+			path = TutorialModule;
+			sourceTree = "<group>";
+		};
+		1DDDE0E42ABDB017008E74FB /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1DDDE0E72ABDB686008E74FB /* TapMeText.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		1DDDE0EF2ABDCDA8008E74FB /* Video */ = {
@@ -337,6 +356,7 @@
 				1DDDE0E62ABDB221008E74FB /* VideoManager.swift in Sources */,
 				1DCD83432ABBC33D009C749A /* UserDefaults + Extension.swift in Sources */,
 				1DCD83082ABA2F62009C749A /* GameViewController.swift in Sources */,
+				1DDDE0E82ABDB686008E74FB /* TapMeText.swift in Sources */,
 				1DCD83492ABC9435009C749A /* LeaderboardsCell.swift in Sources */,
 				1DCD83042ABA2F62009C749A /* AppDelegate.swift in Sources */,
 				1DCD83392ABA44BC009C749A /* UIViewController + Extension.swift in Sources */,
