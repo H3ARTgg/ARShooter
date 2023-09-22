@@ -33,6 +33,7 @@
 		1DCD83542ABCAF43009C749A /* laserShot.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1DCD83512ABCAF43009C749A /* laserShot.mp3 */; };
 		1DCD83552ABCAF43009C749A /* targetSpawn.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1DCD83522ABCAF43009C749A /* targetSpawn.mp3 */; };
 		1DCD83572ABCAF63009C749A /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DCD83562ABCAF63009C749A /* AudioManager.swift */; };
+		1DDDE0E62ABDB221008E74FB /* VideoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DDDE0E52ABDB221008E74FB /* VideoManager.swift */; };
 		1DDDE0F42ABDD991008E74FB /* gameplay.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 1DDDE0F32ABDD760008E74FB /* gameplay.mp4 */; };
 /* End PBXBuildFile section */
 
@@ -65,6 +66,7 @@
 		1DCD83512ABCAF43009C749A /* laserShot.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = laserShot.mp3; sourceTree = "<group>"; };
 		1DCD83522ABCAF43009C749A /* targetSpawn.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = targetSpawn.mp3; sourceTree = "<group>"; };
 		1DCD83562ABCAF63009C749A /* AudioManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioManager.swift; sourceTree = "<group>"; };
+		1DDDE0E52ABDB221008E74FB /* VideoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoManager.swift; sourceTree = "<group>"; };
 		1DDDE0F32ABDD760008E74FB /* gameplay.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = gameplay.mp4; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -226,6 +228,7 @@
 		1DCD83582ABCAFEE009C749A /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				1DDDE0E52ABDB221008E74FB /* VideoManager.swift */,
 				1DCD83562ABCAF63009C749A /* AudioManager.swift */,
 				1DCD83402ABBC2A5009C749A /* Storage.swift */,
 			);
@@ -331,6 +334,7 @@
 				1DCD83192ABA30FB009C749A /* GameViewModel.swift in Sources */,
 				1DCD83342ABA3ECB009C749A /* String + Extension.swift in Sources */,
 				1DCD83292ABA3A78009C749A /* MenuViewController.swift in Sources */,
+				1DDDE0E62ABDB221008E74FB /* VideoManager.swift in Sources */,
 				1DCD83432ABBC33D009C749A /* UserDefaults + Extension.swift in Sources */,
 				1DCD83082ABA2F62009C749A /* GameViewController.swift in Sources */,
 				1DCD83492ABC9435009C749A /* LeaderboardsCell.swift in Sources */,
