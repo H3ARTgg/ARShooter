@@ -33,6 +33,7 @@
 		1DCD83542ABCAF43009C749A /* laserShot.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1DCD83512ABCAF43009C749A /* laserShot.mp3 */; };
 		1DCD83552ABCAF43009C749A /* targetSpawn.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1DCD83522ABCAF43009C749A /* targetSpawn.mp3 */; };
 		1DCD83572ABCAF63009C749A /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DCD83562ABCAF63009C749A /* AudioManager.swift */; };
+		1DDDE0F42ABDD991008E74FB /* gameplay.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 1DDDE0F32ABDD760008E74FB /* gameplay.mp4 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +65,7 @@
 		1DCD83512ABCAF43009C749A /* laserShot.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = laserShot.mp3; sourceTree = "<group>"; };
 		1DCD83522ABCAF43009C749A /* targetSpawn.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = targetSpawn.mp3; sourceTree = "<group>"; };
 		1DCD83562ABCAF63009C749A /* AudioManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioManager.swift; sourceTree = "<group>"; };
+		1DDDE0F32ABDD760008E74FB /* gameplay.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = gameplay.mp4; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,7 +119,7 @@
 		1DCD831B2ABA310A009C749A /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				1DCD834F2ABCAEE9009C749A /* Sounds */,
+				1DDDE0F02ABDCDB3008E74FB /* Media */,
 				1DCD830E2ABA2F64009C749A /* LaunchScreen.storyboard */,
 				1DCD830C2ABA2F64009C749A /* Assets.xcassets */,
 				1DCD83312ABA3E9C009C749A /* Localizable.strings */,
@@ -230,6 +232,23 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		1DDDE0EF2ABDCDA8008E74FB /* Video */ = {
+			isa = PBXGroup;
+			children = (
+				1DDDE0F32ABDD760008E74FB /* gameplay.mp4 */,
+			);
+			path = Video;
+			sourceTree = "<group>";
+		};
+		1DDDE0F02ABDCDB3008E74FB /* Media */ = {
+			isa = PBXGroup;
+			children = (
+				1DCD834F2ABCAEE9009C749A /* Sounds */,
+				1DDDE0EF2ABDCDA8008E74FB /* Video */,
+			);
+			path = Media;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -289,6 +308,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1DDDE0F42ABDD991008E74FB /* gameplay.mp4 in Resources */,
 				1DCD83532ABCAF43009C749A /* countdown.mp3 in Resources */,
 				1DCD83552ABCAF43009C749A /* targetSpawn.mp3 in Resources */,
 				1DCD83102ABA2F64009C749A /* LaunchScreen.storyboard in Resources */,
