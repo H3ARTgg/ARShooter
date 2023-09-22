@@ -8,3 +8,12 @@ back_to_menu = "Back to Menu";
 save_to_leaderboards = "Save to Leaderboards";
 totalShots = "Total shots";
 totalHits = "Total hits";
+tutorial = "Tutorial";
+tap_me = "TAP ME";
+description = "
+        The rules are simple!
+        Shoot as many spheres as you can before you run out of time.
+        Remember - they can be anywhere (even behind you).
+        To try this out - find button to enable shooting mode in here
+        and test your aim on sphere in this room. Good luck!
+        ";

@@ -106,7 +106,7 @@ private extension MenuViewController {
     
     func configureTutorialButton(_ button: UIButton) {
         button.setImage(nil, for: .normal)
-        button.setTitle("Tutorial", for: .normal)
+        button.setTitle(.tutorial, for: .normal)
         button.tintColor = .white
         button.titleLabel?.textColor = .white
         button.titleLabel?.font = .systemFont(ofSize: 30, weight: .semibold)

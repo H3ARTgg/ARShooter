@@ -11,6 +11,9 @@ enum LocaleKeys: String {
     case seconds = "seconds"
     case totalShots = "totalShots"
     case totalHits = "totalHits"
+    case tutorial = "tutorial"
+    case tapMe = "tap_me"
+    case description = "description"
 }
 
 extension String {
@@ -24,4 +27,7 @@ extension String {
     static let seconds = NSLocalizedString(LocaleKeys.seconds.rawValue, comment: "")
     static let totalShots = NSLocalizedString(LocaleKeys.totalShots.rawValue, comment: "")
     static let totalHits = NSLocalizedString(LocaleKeys.totalHits.rawValue, comment: "")
+    static let tutorial = NSLocalizedString(LocaleKeys.tutorial.rawValue, comment: "")
+    static let tapMe = NSLocalizedString(LocaleKeys.tapMe.rawValue, comment: "")
+    static let description = NSLocalizedString(LocaleKeys.description.rawValue, comment: "")
 }
