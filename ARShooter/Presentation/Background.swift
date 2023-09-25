@@ -4,7 +4,12 @@ final class Background {
     static let name = "background"
     
     static func makeBackgroundNode() -> SCNNode {
-        let boxNode = SCNNode(geometry: SCNBox(width: 20, height: 20, length: 20, chamferRadius: 0))
+        let boxNode = SCNNode(geometry: SCNBox(
+            width: Consts.backgroundWidth,
+            height: Consts.backgroundHeight,
+            length: Consts.backgroundLength,
+            chamferRadius: Consts.backgroundRadius
+        ))
         boxNode.name = name
         let imagesArray: [UIImage] = [
             .plusX,
