@@ -98,10 +98,8 @@ final class TutorialViewController: UIViewController {
                 guard let self else { return }
                 if let oldNode = self.sceneView.scene.rootNode.childNodes.first(where: { $0.name == VideoScreen.name }) {
                     oldNode.removeFromParentNode()
-                    self.sceneView.scene.rootNode.addChildNode(node)
-                } else {
-                    self.sceneView.scene.rootNode.addChildNode(node)
                 }
+                self.sceneView.scene.rootNode.addChildNode(node)
             }
             .store(in: &cancellables)
     }
