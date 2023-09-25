@@ -6,7 +6,10 @@ final class Consts {
     static let targetAnimationDuration: Double = 15
     
     // Background
-    static let backgroundRadius: CGFloat = 10
+    static let backgroundRadius: CGFloat = 0
+    static let backgroundWidth: CGFloat = 20
+    static let backgroundHeight: CGFloat = 20
+    static let backgroundLength: CGFloat = 20
     
     // Timers
     static let countdownToStart: Double = 3
@@ -17,6 +20,6 @@ final class Consts {
     static let laserShotSound = "laserShot"
     static let targetSpawnSound = "targetSpawn"
     
-    //Video
+    // Video
     static let gameplayVideo = "gameplay"
 }
