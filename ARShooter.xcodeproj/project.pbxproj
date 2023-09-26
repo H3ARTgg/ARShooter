@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		1D2986C92AC2915E008B94F0 /* TutorialViewModuleSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2986C82AC2915E008B94F0 /* TutorialViewModuleSpy.swift */; };
 		1D2986CB2AC29226008B94F0 /* TutorialModuleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2986CA2AC29226008B94F0 /* TutorialModuleTests.swift */; };
+		1D5712C82AC297510070485A /* LeaderboardsViewModelStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5712C72AC297510070485A /* LeaderboardsViewModelStub.swift */; };
+		1D5712CA2AC297CA0070485A /* LeaderboardsModuleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5712C92AC297CA0070485A /* LeaderboardsModuleTests.swift */; };
 		1DCD83042ABA2F62009C749A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DCD83032ABA2F62009C749A /* AppDelegate.swift */; };
 		1DCD83082ABA2F62009C749A /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DCD83072ABA2F62009C749A /* GameViewController.swift */; };
 		1DCD830D2ABA2F64009C749A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1DCD830C2ABA2F64009C749A /* Assets.xcassets */; };
@@ -59,6 +61,8 @@
 /* Begin PBXFileReference section */
 		1D2986C82AC2915E008B94F0 /* TutorialViewModuleSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialViewModuleSpy.swift; sourceTree = "<group>"; };
 		1D2986CA2AC29226008B94F0 /* TutorialModuleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialModuleTests.swift; sourceTree = "<group>"; };
+		1D5712C72AC297510070485A /* LeaderboardsViewModelStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardsViewModelStub.swift; sourceTree = "<group>"; };
+		1D5712C92AC297CA0070485A /* LeaderboardsModuleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardsModuleTests.swift; sourceTree = "<group>"; };
 		1DCD83002ABA2F62009C749A /* ARShooter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARShooter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DCD83032ABA2F62009C749A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1DCD83072ABA2F62009C749A /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
@@ -124,6 +128,15 @@
 				1D2986CA2AC29226008B94F0 /* TutorialModuleTests.swift */,
 			);
 			path = TutorialModule;
+			sourceTree = "<group>";
+		};
+		1D5712C62AC297080070485A /* LeaderboardsModule */ = {
+			isa = PBXGroup;
+			children = (
+				1D5712C72AC297510070485A /* LeaderboardsViewModelStub.swift */,
+				1D5712C92AC297CA0070485A /* LeaderboardsModuleTests.swift */,
+			);
+			path = LeaderboardsModule;
 			sourceTree = "<group>";
 		};
 		1DCD82F72ABA2F62009C749A = {
@@ -315,6 +328,7 @@
 		1DDDE0FA2AC21D47008E74FB /* ARShooterTests */ = {
 			isa = PBXGroup;
 			children = (
+				1D5712C62AC297080070485A /* LeaderboardsModule */,
 				1D2986C72AC29008008B94F0 /* TutorialModule */,
 				1DDDE1022AC26F9C008E74FB /* GameModule */,
 			);
@@ -469,8 +483,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1D5712C82AC297510070485A /* LeaderboardsViewModelStub.swift in Sources */,
 				1DDDE0FC2AC21D47008E74FB /* GameModuleTests.swift in Sources */,
 				1D2986CB2AC29226008B94F0 /* TutorialModuleTests.swift in Sources */,
+				1D5712CA2AC297CA0070485A /* LeaderboardsModuleTests.swift in Sources */,
 				1DDDE1042AC27060008E74FB /* GameViewModelSpy.swift in Sources */,
 				1D2986C92AC2915E008B94F0 /* TutorialViewModuleSpy.swift in Sources */,
 			);
