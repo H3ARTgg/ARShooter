@@ -40,7 +40,19 @@
 		1DDDE0EC2ABDB6D1008E74FB /* VideoScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DDDE0EB2ABDB6D1008E74FB /* VideoScreen.swift */; };
 		1DDDE0EE2ABDBAFF008E74FB /* TutorialViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DDDE0ED2ABDBAFF008E74FB /* TutorialViewModel.swift */; };
 		1DDDE0F42ABDD991008E74FB /* gameplay.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 1DDDE0F32ABDD760008E74FB /* gameplay.mp4 */; };
+		1DDDE0FC2AC21D47008E74FB /* GameModuleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DDDE0FB2AC21D47008E74FB /* GameModuleTests.swift */; };
+		1DDDE1042AC27060008E74FB /* GameViewModelSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DDDE1032AC27060008E74FB /* GameViewModelSpy.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1DDDE0FD2AC21D47008E74FB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1DCD82F82ABA2F62009C749A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1DCD82FF2ABA2F62009C749A;
+			remoteInfo = ARShooter;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		1DCD83002ABA2F62009C749A /* ARShooter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARShooter.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -78,10 +90,20 @@
 		1DDDE0EB2ABDB6D1008E74FB /* VideoScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoScreen.swift; sourceTree = "<group>"; };
 		1DDDE0ED2ABDBAFF008E74FB /* TutorialViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialViewModel.swift; sourceTree = "<group>"; };
 		1DDDE0F32ABDD760008E74FB /* gameplay.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = gameplay.mp4; sourceTree = "<group>"; };
+		1DDDE0F92AC21D47008E74FB /* ARShooterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ARShooterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1DDDE0FB2AC21D47008E74FB /* GameModuleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModuleTests.swift; sourceTree = "<group>"; };
+		1DDDE1032AC27060008E74FB /* GameViewModelSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModelSpy.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		1DCD82FD2ABA2F62009C749A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1DDDE0F62AC21D47008E74FB /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -95,6 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				1DCD83022ABA2F62009C749A /* ARShooter */,
+				1DDDE0FA2AC21D47008E74FB /* ARShooterTests */,
 				1DCD83012ABA2F62009C749A /* Products */,
 			);
 			sourceTree = "<group>";
@@ -103,6 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				1DCD83002ABA2F62009C749A /* ARShooter.app */,
+				1DDDE0F92AC21D47008E74FB /* ARShooterTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -275,6 +299,23 @@
 			path = Media;
 			sourceTree = "<group>";
 		};
+		1DDDE0FA2AC21D47008E74FB /* ARShooterTests */ = {
+			isa = PBXGroup;
+			children = (
+				1DDDE1022AC26F9C008E74FB /* GameModule */,
+			);
+			path = ARShooterTests;
+			sourceTree = "<group>";
+		};
+		1DDDE1022AC26F9C008E74FB /* GameModule */ = {
+			isa = PBXGroup;
+			children = (
+				1DDDE0FB2AC21D47008E74FB /* GameModuleTests.swift */,
+				1DDDE1032AC27060008E74FB /* GameViewModelSpy.swift */,
+			);
+			path = GameModule;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -295,6 +336,24 @@
 			productReference = 1DCD83002ABA2F62009C749A /* ARShooter.app */;
 			productType = "com.apple.product-type.application";
 		};
+		1DDDE0F82AC21D47008E74FB /* ARShooterTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1DDDE0FF2AC21D47008E74FB /* Build configuration list for PBXNativeTarget "ARShooterTests" */;
+			buildPhases = (
+				1DDDE0F52AC21D47008E74FB /* Sources */,
+				1DDDE0F62AC21D47008E74FB /* Frameworks */,
+				1DDDE0F72AC21D47008E74FB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1DDDE0FE2AC21D47008E74FB /* PBXTargetDependency */,
+			);
+			name = ARShooterTests;
+			productName = ARShooterTests;
+			productReference = 1DDDE0F92AC21D47008E74FB /* ARShooterTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -307,6 +366,10 @@
 				TargetAttributes = {
 					1DCD82FF2ABA2F62009C749A = {
 						CreatedOnToolsVersion = 14.3.1;
+					};
+					1DDDE0F82AC21D47008E74FB = {
+						CreatedOnToolsVersion = 14.3.1;
+						TestTargetID = 1DCD82FF2ABA2F62009C749A;
 					};
 				};
 			};
@@ -325,6 +388,7 @@
 			projectRoot = "";
 			targets = (
 				1DCD82FF2ABA2F62009C749A /* ARShooter */,
+				1DDDE0F82AC21D47008E74FB /* ARShooterTests */,
 			);
 		};
 /* End PBXProject section */
@@ -341,6 +405,13 @@
 				1DCD832F2ABA3E9C009C749A /* Localizable.strings in Resources */,
 				1DCD83542ABCAF43009C749A /* laserShot.mp3 in Resources */,
 				1DCD830D2ABA2F64009C749A /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1DDDE0F72AC21D47008E74FB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -380,7 +451,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		1DDDE0F52AC21D47008E74FB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1DDDE0FC2AC21D47008E74FB /* GameModuleTests.swift in Sources */,
+				1DDDE1042AC27060008E74FB /* GameViewModelSpy.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1DDDE0FE2AC21D47008E74FB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1DCD82FF2ABA2F62009C749A /* ARShooter */;
+			targetProxy = 1DDDE0FD2AC21D47008E74FB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		1DCD830E2ABA2F64009C749A /* LaunchScreen.storyboard */ = {
@@ -579,6 +667,42 @@
 			};
 			name = Release;
 		};
+		1DDDE1002AC21D47008E74FB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = CCJ53Q5CP4;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ru.h3artgg.ARShooterTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ARShooter.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ARShooter";
+			};
+			name = Debug;
+		};
+		1DDDE1012AC21D47008E74FB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = CCJ53Q5CP4;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ru.h3artgg.ARShooterTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ARShooter.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ARShooter";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -596,6 +720,15 @@
 			buildConfigurations = (
 				1DCD83142ABA2F64009C749A /* Debug */,
 				1DCD83152ABA2F64009C749A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1DDDE0FF2AC21D47008E74FB /* Build configuration list for PBXNativeTarget "ARShooterTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DDDE1002AC21D47008E74FB /* Debug */,
+				1DDDE1012AC21D47008E74FB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
